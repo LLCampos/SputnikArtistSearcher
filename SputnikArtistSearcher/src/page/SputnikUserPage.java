@@ -5,17 +5,19 @@ import java.util.ArrayList;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import data.FavoriteAlbumsPages;
+
 public class SputnikUserPage extends Page {
 
 	public SputnikUserPage(String page_url) {
 		super(page_url);
 	}
 	
-	public ArrayList<SputnikAlbumPage> getFavoriteAlbumsPages() {
+	public FavoriteAlbumsPages getFavoriteAlbumsPages() {
 		
 		Elements elements = getPage_body().select(".profilebox ");
 		
-		ArrayList<SputnikAlbumPage> albums_pages = new ArrayList<SputnikAlbumPage>();
+		FavoriteAlbumsPages albums_pages = new FavoriteAlbumsPages();
 		
 		// Get only the albums with 4.0, 4.5 and 5.0 rating points
 		for (int i = 0; i < 3; i++) {
