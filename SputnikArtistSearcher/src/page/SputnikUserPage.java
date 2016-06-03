@@ -1,7 +1,5 @@
 package page;
 
-import java.awt.List;
-import java.net.URL;
 import java.util.ArrayList;
 
 import org.jsoup.nodes.Element;
