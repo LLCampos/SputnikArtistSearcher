@@ -34,7 +34,7 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 		}
 	}
 	
-	public void update(UnwantedArtists unwanted_artists, UnwantedArtists unwanted_tags) {
+	public void update(UnwantedArtists unwanted_artists, UnwantedTags unwanted_tags) {
 				
 		for (ArtistToTry artist : this) {
 			if (unwanted_artists.contains(artist.getArtist_name()) || unwanted_tags.contains(artist.getMain_tag())) {
