@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class HashSetFromFile extends HashSet<String> {
 	
+	private static final long serialVersionUID = 1L;
+
 	public HashSetFromFile(String file_path) {
 		
 		try {

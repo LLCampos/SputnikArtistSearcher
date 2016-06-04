@@ -6,6 +6,10 @@ import java.net.URL;
 
 public class ArtistToTry implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String artist_name;
 	private String best_album_name;
 	private String main_tag;

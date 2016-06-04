@@ -9,6 +9,11 @@ import page.SputnikUserPage;
 
 public class ArtistsToTry extends HashSet<ArtistToTry> implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public void addArtistToTryFromSputnikUserPage(SputnikUserPage user_page, UnwantedArtists unwanted_artists, UnwantedArtists unwanted_tags) {
 		
 		FavoriteAlbumsPages favorite_album_pages = user_page.getFavoriteAlbumsPages();
