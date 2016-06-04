@@ -8,6 +8,10 @@ import java.io.Serializable;
 
 public class ProgramSettings implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4681185244268839561L;
 	private static String programsettings_path = "program_files/program_settings.ser";
 	private String unwanted_artist_path;
 	private String unwanted_tags_path;
