@@ -1,8 +1,10 @@
 package data;
 
+import java.io.Serializable;
+import java.net.MalformedURLException;
 import java.net.URL;
 
-public class ArtistToTry {
+public class ArtistToTry implements Serializable {
 	
 	private String artist_name;
 	private String best_album_name;
@@ -11,11 +13,12 @@ public class ArtistToTry {
 	private URL youtube_url;
 	
 	public ArtistToTry(String artist_name, String best_album_name, String main_tag, URL sputnik_url) {
-		super();
-		this.artist_name = artist_name;
-		this.best_album_name = best_album_name;
-		this.main_tag = main_tag;
+		this.artist_name = artist_name.toLowerCase();
+		this.best_album_name = best_album_name.toLowerCase();
+		this.main_tag = main_tag.toLowerCase();
 		this.sputnik_url = sputnik_url;
+		
+		setYoutube_url();
 	}
 	
 	public String getArtist_name() {
@@ -45,9 +48,14 @@ public class ArtistToTry {
 	public URL getYoutube_url() {
 		return youtube_url;
 	}
-	public void setYoutube_url(URL youtube_url) {
-		this.youtube_url = youtube_url;
+	public void setYoutube_url() {
+		try {
+			youtube_url = new URL("https://www.youtube.com/results?search_query=" + (artist_name + "+"  + best_album_name).replace(" ", "+"));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 	}
+	
 	
 	
 	
