@@ -11,11 +11,11 @@ public class SputnikArtistPage extends Page {
 	
 	public String getArtistName() {
 		Elements element = getPage_body().select("table > tbody > tr:eq(1) > td > table > tbody > tr > td > table:eq(0) > tbody > tr:eq(3) > td > table > tbody > tr > td:eq(1) > table:eq(0) > tbody > tr > td > font > b");
-		return element.html();
+		return element.html().toLowerCase();
 	}
 	
 	public String getArtistTag() {
 		Element element = getPage_body().select(".tags > .tag > a").first();
-		return element.html();	
+		return element.html().toLowerCase();	
 	}
 }
