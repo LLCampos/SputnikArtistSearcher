@@ -1,6 +1,6 @@
 package data;
 
-public class UnwantedTags extends HashSetFromFile {
+public class UnwantedTags extends Unwanteds {
 
 	/**
 	 * 

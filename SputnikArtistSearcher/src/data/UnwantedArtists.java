@@ -1,6 +1,6 @@
 package data;
 
-public class UnwantedArtists extends HashSetFromFile {
+public class UnwantedArtists extends Unwanteds {
 
 	private static final long serialVersionUID = 1L;
 
