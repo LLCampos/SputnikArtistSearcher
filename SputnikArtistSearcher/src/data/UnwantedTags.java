@@ -1,7 +1,5 @@
 package data;
 
-import java.util.HashSet;
-
 public class UnwantedTags extends HashSetFromFile {
 
 	/**
