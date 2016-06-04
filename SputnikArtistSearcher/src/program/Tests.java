@@ -1,26 +1,18 @@
 package program;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 import data.ArtistToTry;
-import data.ArtistsToTry;
 import data.UnwantedArtists;
 import page.SputnikAlbumPage;
 import page.SputnikArtistPage;
-import page.SputnikUserPage;
 
 public class Tests {
 
 	public static void main(String[] args) {
+		
 		// Test 1
-		
-		
 		SputnikArtistPage artist_page = new SputnikArtistPage("http://www.sputnikmusic.com/bands/Arctic-Monkeys/1847/");
 		
 		if (artist_page.getArtistName().equals("Arctic Monkeys")) {
@@ -41,7 +33,6 @@ public class Tests {
 		
 		
 		// Test 2
-		
 		SputnikAlbumPage album_page = new SputnikAlbumPage("http://www.sputnikmusic.com/review/70817/BUS-The-Unknown-Secretary/");
 		
 		SputnikArtistPage album_artist_page = album_page.getArtistPage();
@@ -75,9 +66,7 @@ public class Tests {
 			e.printStackTrace();
 		}
 		
-		
 		// Test 4
-		
 		try {
 			UnwantedArtists unwanted_artists = new UnwantedArtists("program_files/UnwantedArtists.txt");
 			System.out.println(unwanted_artists.contains("Arcade Fire") ? "Test 4.1 Passed." : "Test 4.1 Failed.");
@@ -85,9 +74,6 @@ public class Tests {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 		
 		//  SputnikUserPage user_page = new SputnikUserPage("http://www.sputnikmusic.com/uservote.php?memberid=1043886");
 		// ArrayList<SputnikAlbumPage> favorite_albums_pages = user_page.getFavoriteAlbumsPages();
