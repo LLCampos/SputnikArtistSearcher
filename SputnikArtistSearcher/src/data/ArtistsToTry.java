@@ -6,7 +6,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-
 import page.SputnikAlbumPage;
 import page.SputnikArtistPage;
 import page.SputnikUserPage;
@@ -20,7 +19,7 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 
 	public void addArtistToTryFromSputnikUserPage(SputnikUserPage user_page, UnwantedArtists unwanted_artists, UnwantedTags unwanted_tags) {
 		
-		FavoriteAlbumsPages favorite_album_pages = user_page.getFavoriteAlbumsPages();
+		FavoriteAlbumsPages favorite_album_pages = user_page.getFavoriteAlbumsPages(unwanted_artists);
 		
 		for (SputnikAlbumPage album_page : favorite_album_pages) {
 			
@@ -35,8 +34,10 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 	}
 	
 	public void update(UnwantedArtists unwanted_artists, UnwantedTags unwanted_tags) {
-				
-		for (ArtistToTry artist : this) {
+		
+		 ArtistsToTry list = (ArtistsToTry) this.clone();
+		
+		for (ArtistToTry artist : list) {
 			if (unwanted_artists.contains(artist.getArtist_name()) || unwanted_tags.contains(artist.getMain_tag())) {
 				remove(artist);
 			}
