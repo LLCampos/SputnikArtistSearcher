@@ -1,7 +1,10 @@
 package data;
 
-import java.util.HashSet;
+public class UnwantedArtists extends HashSetFromFile {
 
-public class UnwantedArtists extends HashSet<String> {
+	public UnwantedArtists(String file_path) {
+		super(file_path);
+	}
+	
 
 }
