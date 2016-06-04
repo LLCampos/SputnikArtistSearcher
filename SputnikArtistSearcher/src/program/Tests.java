@@ -15,7 +15,7 @@ public class Tests {
 		// Test 1
 		SputnikArtistPage artist_page = new SputnikArtistPage("http://www.sputnikmusic.com/bands/Arctic-Monkeys/1847/");
 		
-		if (artist_page.getArtistName().equals("Arctic Monkeys")) {
+		if (artist_page.getArtistName().equals("arctic monkeys")) {
 			System.out.println("Test 1.1 passed.");
 		} else {
 			System.out.println("Test 1.1 failed.");
@@ -23,7 +23,7 @@ public class Tests {
 			System.out.println(artist_page.getArtistName());
 		};
 		
-		if (artist_page.getArtistTag().equals("Indie Rock")) {
+		if (artist_page.getArtistTag().equals("indie rock")) {
 			System.out.println("Test 1.2 passed.");
 		} else {
 			System.out.println("Test 1.2 failed.");
@@ -36,11 +36,11 @@ public class Tests {
 		SputnikAlbumPage album_page = new SputnikAlbumPage("http://www.sputnikmusic.com/review/70817/BUS-The-Unknown-Secretary/");
 		
 		SputnikArtistPage album_artist_page = album_page.getArtistPage();
-		if (album_artist_page.getPage_url().toString().equals("http://www.sputnikmusic.com/bands/BUS/62292/")) {
+		if (album_artist_page.getPage_url().toString().equals("http://www.sputnikmusic.com//bands/BUS/62292/")) {
 			System.out.println("Test 2.1 passed.");
 		} else {
 			System.out.println("Test 2.1 failed.");
-			System.out.println("http://www.sputnikmusic.com/bands/BUS/62292/");
+			System.out.println("http://www.sputnikmusic.com//bands/BUS/62292/");
 			System.out.println(album_artist_page.getPage_url().toString());
 		};
 		
@@ -69,15 +69,13 @@ public class Tests {
 		// Test 4
 		try {
 			UnwantedArtists unwanted_artists = new UnwantedArtists("program_files/UnwantedArtists.txt");
-			System.out.println(unwanted_artists.contains("Arcade Fire") ? "Test 4.1 Passed." : "Test 4.1 Failed.");
+			System.out.println(unwanted_artists.contains("arcade fire") ? "Test 4.1 Passed." : "Test 4.1 Failed.");
 			System.out.println(unwanted_artists.contains("afasdfsda") ? "Test 4.2 Failed." : "Test 4.2 Passed.");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		//  SputnikUserPage user_page = new SputnikUserPage("http://www.sputnikmusic.com/uservote.php?memberid=1043886");
-		// ArrayList<SputnikAlbumPage> favorite_albums_pages = user_page.getFavoriteAlbumsPages();
-
+		
 	}
 
 }
