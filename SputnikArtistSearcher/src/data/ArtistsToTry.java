@@ -16,8 +16,8 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	public void addArtistToTryFromSputnikUserPage(SputnikUserPage user_page, UnwantedArtists unwanted_artists, UnwantedTags unwanted_tags) {
+	
+	public void addArtistToTryFromSputnikUserPage(SputnikUserPage user_page, Unwanteds unwanted_artists, Unwanteds unwanted_tags) {
 		
 		FavoriteAlbumsPages favorite_album_pages = user_page.getFavoriteAlbumsPages(unwanted_artists);
 		
@@ -25,7 +25,7 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 			
 			SputnikArtistPage album_artist_page = album_page.getArtistPage();
 			
-			if (unwanted_artists.contains(album_artist_page.getArtistName()) || unwanted_tags.contains(album_artist_page.getArtistTag())) {
+			if (album_artist_page == null || unwanted_artists.contains(album_artist_page.getArtistName()) || unwanted_tags.contains(album_artist_page.getArtistTag())) {
 				continue;
 			}
 			
@@ -33,7 +33,7 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 		}
 	}
 	
-	public void update(UnwantedArtists unwanted_artists, UnwantedTags unwanted_tags) {
+	public void update(Unwanteds unwanted_artists, Unwanteds unwanted_tags) {
 		
 		 ArtistsToTry list = (ArtistsToTry) this.clone();
 		
