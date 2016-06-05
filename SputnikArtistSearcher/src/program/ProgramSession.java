@@ -1,25 +1,31 @@
 package program;
 
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.net.MalformedURLException;
 
 import data.ArtistToTry;
 import data.ArtistsToTry;
-import data.UnwantedArtists;
-import data.UnwantedTags;
+import data.Unwanteds;
 import page.SputnikUserPage;
 
 public class ProgramSession {
 	
-	private UnwantedArtists unwanted_artists;
-	private UnwantedTags unwanted_tags;
+	private Unwanteds unwanted_artists;
+	private Unwanteds unwanted_tags;
 	private ArtistsToTry artists_to_try;
 	private ProgramSettings settings;
 	
 	public ProgramSession() {
 		settings = ProgramSettings.load();
 		
-		unwanted_artists = new UnwantedArtists(settings.getUnwanted_artist_path());
-		unwanted_tags = new UnwantedTags(settings.getUnwanted_tags_path());
+		try {
+			unwanted_artists = new Unwanteds(settings.getUnwanted_artist_path());
+			unwanted_tags = new Unwanteds(settings.getUnwanted_tags_path());
+		} catch (FileNotFoundException e) {
+			e.getMessage();
+		}
+		
 		artists_to_try = ArtistsToTry.loadObject(settings.getArtiststotryfile_path());
 	}
 	
@@ -63,9 +69,17 @@ public class ProgramSession {
 		nextArtist();
 	}
 	
-	public void addArtistsFromSputnikURL(String url_str) {
-		SputnikUserPage user_page = new SputnikUserPage(url_str);
-		artists_to_try.addArtistToTryFromSputnikUserPage(user_page, unwanted_artists, unwanted_tags);
-		artists_to_try.saveObject(settings.getArtiststotryfile_path());
+	public Boolean addArtistsFromSputnikURL(String url_str) {
+		try {
+			SputnikUserPage user_page = new SputnikUserPage(url_str);
+			artists_to_try.addArtistToTryFromSputnikUserPage(user_page, unwanted_artists, unwanted_tags);
+			artists_to_try.saveObject(settings.getArtiststotryfile_path());
+			return true;
+		} catch (MalformedURLException e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+		
+		
 	}
 }
