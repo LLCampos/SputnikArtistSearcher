@@ -11,9 +11,9 @@ import page.SputnikArtistPage;
 import page.SputnikUserPage;
 
 /**
- * The Class ArtistsToTry.
+ * The Class ArtistsToListenTo.
  */
-public class ArtistsToTry extends ArrayList<Artist> implements Serializable {
+public class ArtistsToListenTo extends ArrayList<Artist> implements Serializable {
 	
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -49,7 +49,7 @@ public class ArtistsToTry extends ArrayList<Artist> implements Serializable {
 	 */
 	public void update(StringHashSetFromFile unwanted_artists, StringHashSetFromFile unwanted_tags) {
 		
-		 ArtistsToTry list = (ArtistsToTry) this.clone();
+		 ArtistsToListenTo list = (ArtistsToListenTo) this.clone();
 		
 		for (Artist artist : list) {
 			if (unwanted_artists.contains(artist.getArtist_name()) || unwanted_tags.contains(artist.getMain_tag())) {
@@ -64,13 +64,13 @@ public class ArtistsToTry extends ArrayList<Artist> implements Serializable {
 	 * @param file_path the file_path
 	 * @return the artists to try
 	 */
-	public static ArtistsToTry loadObject(String file_path) {
+	public static ArtistsToListenTo loadObject(String file_path) {
 		
-		ArtistsToTry artists_to_try = null;
+		ArtistsToListenTo artists_to_try = null;
 		
 		try {
 			ObjectInputStream is = new ObjectInputStream (new FileInputStream(file_path));
-			artists_to_try = (ArtistsToTry) is.readObject();
+			artists_to_try = (ArtistsToListenTo) is.readObject();
 			is.close();
 		} catch (Exception e) {
 			e.printStackTrace();

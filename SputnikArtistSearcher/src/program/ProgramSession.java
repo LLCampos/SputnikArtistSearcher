@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.net.MalformedURLException;
 
 import data.Artist;
-import data.ArtistsToTry;
+import data.ArtistsToListenTo;
 import data.StringHashSetFromFile;
 import page.SputnikUserPage;
 
@@ -13,7 +13,7 @@ public class ProgramSession {
 	
 	private StringHashSetFromFile unwanted_artists;
 	private StringHashSetFromFile unwanted_tags;
-	private ArtistsToTry artists_to_try;
+	private ArtistsToListenTo artists_to_try;
 	private ProgramSettings settings;
 	
 	public ProgramSession() {
@@ -26,7 +26,7 @@ public class ProgramSession {
 			e.getMessage();
 		}
 		
-		artists_to_try = ArtistsToTry.loadObject(settings.getArtiststotryfile_path());
+		artists_to_try = ArtistsToListenTo.loadObject(settings.getArtiststotryfile_path());
 	}
 	
 	public Artist getCurrentArtist() {
