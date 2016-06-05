@@ -7,6 +7,9 @@ import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 
@@ -112,9 +115,15 @@ public class Program {
 		btnAddArtists.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String str = JOptionPane.showInputDialog(frame, "Please insert a Sputnik user ratings page URL.");
-				Boolean response = session.addArtistsFromSputnikURL(str);
-				if (response == false) {
+				try {
+					session.addArtistsFromSputnikURL(str);
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (MalformedURLException|IllegalArgumentException e1) {
+					e1.printStackTrace();
 					JOptionPane.showMessageDialog(frame, "The URL you gave is not acceptable.");
+				} catch (IOException e1) {
+					e1.printStackTrace();
 				}
 			}
 		});

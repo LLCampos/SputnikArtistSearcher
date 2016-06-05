@@ -19,9 +19,16 @@ import page.SputnikUserPage;
  */
 public class ProgramSession {
 	
+	/** The unwanted_artists. */
 	private StringHashSetFromFile unwanted_artists;
+	
+	/** The unwanted_tags. */
 	private StringHashSetFromFile unwanted_tags;
+	
+	/** The artists_to_try. */
 	private ArtistsToTry artists_to_try;
+	
+	/** The settings. */
 	private ProgramSettings settings;
 	
 	/**
@@ -131,31 +138,17 @@ public class ProgramSession {
 	}
 	
 	/**
-	 * 
 	 * Actions to take when the user submits an user's rating page URL to get new artists.
-	 * 
-	 * @param an SputnikMusic user's rating page URL
-	 * @return
+	 *
+	 * @param url_str the url_str
+	 * @throws FileNotFoundException the file not found exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @throws MalformedURLException the malformed url exception
+	 * @throws IllegalArgumentException the illegal argument exception
 	 */
-	public Boolean addArtistsFromSputnikURL(String url_str) {
-		try {
-			SputnikUserPage user_page = new SputnikUserPage(url_str);
-			artists_to_try.addArtistToTryFromSputnikUserPage(user_page, unwanted_artists, unwanted_tags);
-			try {
-				artists_to_try.saveObject(settings.getArtiststotryfile_path());
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return true;
-		} catch (MalformedURLException e) {
-			System.out.println(e.getMessage());
-			return false;
-		}
-		
-		
+	public void addArtistsFromSputnikURL(String url_str) throws FileNotFoundException, IOException, MalformedURLException, IllegalArgumentException {
+		SputnikUserPage user_page = new SputnikUserPage(url_str);
+		artists_to_try.addArtistToTryFromSputnikUserPage(user_page, unwanted_artists, unwanted_tags);
+		artists_to_try.saveObject(settings.getArtiststotryfile_path());
 	}
 }
