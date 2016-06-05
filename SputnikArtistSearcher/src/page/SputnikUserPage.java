@@ -1,12 +1,11 @@
 package page;
 
 import java.net.MalformedURLException;
-
+import java.util.HashSet;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import data.FavoriteAlbumsPages;
 import data.StringHashSetFromFile;
 
 public class SputnikUserPage extends Page {
@@ -16,11 +15,11 @@ public class SputnikUserPage extends Page {
 		super(page_url);
 	}
 	
-	public FavoriteAlbumsPages getFavoriteAlbumsPages(StringHashSetFromFile unwanted_artists) {
+	public HashSet<SputnikAlbumPage> getFavoriteAlbumsPages(StringHashSetFromFile unwanted_artists) {
 		
 		Elements elements = getPage_body().select(".profilebox ");
 		
-		FavoriteAlbumsPages albums_pages = new FavoriteAlbumsPages();
+		HashSet<SputnikAlbumPage> albums_pages = new HashSet<SputnikAlbumPage>();
 		
 		// Get only the albums with 4.0, 4.5 and 5.0 rating points
 		for (int i = 0; i < 3; i++) {

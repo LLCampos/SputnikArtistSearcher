@@ -8,6 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import org.apache.commons.io.FilenameUtils;
 
@@ -36,7 +37,7 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 	 */
 	public void addArtistToTryFromSputnikUserPage(SputnikUserPage user_page, StringHashSetFromFile unwanted_artists, StringHashSetFromFile unwanted_tags) {
 		
-		FavoriteAlbumsPages favorite_album_pages = user_page.getFavoriteAlbumsPages(unwanted_artists);
+		HashSet<SputnikAlbumPage> favorite_album_pages = user_page.getFavoriteAlbumsPages(unwanted_artists);
 		
 		for (SputnikAlbumPage album_page : favorite_album_pages) {
 			
