@@ -116,7 +116,10 @@ public class Program {
 		btnAddArtists.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String str = JOptionPane.showInputDialog(frame, "Please insert a Sputnik user ratings page URL.");
-				session.addArtistsFromSputnikURL(str);
+				Boolean response = session.addArtistsFromSputnikURL(str);
+				if (response == false) {
+					JOptionPane.showMessageDialog(frame, "The URL you gave is not acceptable.");
+				}
 			}
 		});
 		btnAddArtists.setBounds(334, 50, 110, 45);
