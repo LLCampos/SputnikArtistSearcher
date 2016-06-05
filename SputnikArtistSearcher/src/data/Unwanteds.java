@@ -24,6 +24,7 @@ public class Unwanteds extends HashSet<String> {
 	 * 
 	 * @param file_path Is the path to the .txt file with a list of strings, separated by newlines.
 	 * @throws FileNotFoundException If no file is found in the path given.
+	 * @throws IllegalArgumentException If the file is not in .txt extension.
 	 */
 	public Unwanteds(String file_path) throws FileNotFoundException, IllegalArgumentException {
 		
@@ -41,24 +42,27 @@ public class Unwanteds extends HashSet<String> {
 		scanner.close();
 	}
 	
-	
-	public void save(String path) {
-		try {
-			FileWriter write = new FileWriter(path);
-			
-			Iterator<String> itr = this.iterator();
-			
-			while (itr.hasNext()) {
-				String next = itr.next();
-				write.write(next + "\n");
-			}
-			
-			write.close();
-			
-		} catch (IOException e) {
-			e.printStackTrace();
+	/**
+	 * Saves object into a file, writing each String in a different line.
+	 * 
+	 * @param path Where to save the file, including the name of the file.
+	 * @throws IOException
+	 */
+	public void save(String path) throws IOException {
+		
+		FileWriter write = new FileWriter(path);
+		
+		Iterator<String> itr = this.iterator();
+		
+		while (itr.hasNext()) {
+			String next = itr.next();
+			write.write(next + "\n");
 		}
+		
+		write.close();	
 	}
+	
+	
 	
 	public boolean add(String str) {
 		return super.add(str.toLowerCase());
