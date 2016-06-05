@@ -18,7 +18,7 @@ public class SputnikAlbumPage extends SputnikPage {
 	 *
 	 * @param album_page_url Is the URL of the SputnikMusic album page.
 	 * @throws MalformedURLException 
-	 * @throws IllegalArgumentException 
+	 * @throws IllegalArgumentException If the URL given was not the URL of a album page.
 	 */
 	public SputnikAlbumPage(String album_page_url) throws MalformedURLException, IllegalArgumentException {
 		super(album_page_url);
