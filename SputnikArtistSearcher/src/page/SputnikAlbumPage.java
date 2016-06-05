@@ -12,24 +12,37 @@ import org.jsoup.nodes.Element;
  */
 
 public class SputnikAlbumPage extends SputnikPage {
+	
+	public int page_type;
 
 	/**
 	 * 
-	 * @param album_page_url
+	 * @param album_page_url Is the URL of the SputnikMusic album page.
 	 * @throws MalformedURLException
 	 */
 	public SputnikAlbumPage(String album_page_url) throws MalformedURLException {
-		//TODO Checkar se o URL é da página do album
+		// TODO checkar se a página é de album;
 		super(album_page_url);
+		
+		String path_first = this.getPage_url().getPath().split("/")[1];
+		
+		if (path_first.equals("review")) {
+			page_type = 1;
+		} else if (path_first.equals("soundoff.php")) {
+			page_type = 2;
+		}
 	}
 
 	public SputnikArtistPage getArtistPage() {
 		
-		Element element = getPage_body().select("table > tbody > tr:eq(1) > td > table:eq(0) > tbody > tr > td > table > tbody > tr:eq(3) > td > div > div:eq(0) > div:eq(0) > h1 > a").first();
-		
-		if (element == null) {
-			element = getPage_body().select("table > tbody > tr:eq(1) > td > table:eq(0) > tbody > tr > td > table > tbody > tr:eq(3) > td > table > tbody > tr > td > table:eq(0) > tbody > tr > td:eq(1) > a").first();
+		String query_string = null;
+		if (page_type == 1) {
+			query_string = "table > tbody > tr:eq(1) > td > table:eq(0) > tbody > tr > td > table > tbody > tr:eq(3) > td > div > div:eq(0) > div:eq(0) > h1 > a";
+		} else if (page_type == 2) {
+			query_string = "table > tbody > tr:eq(1) > td > table:eq(0) > tbody > tr > td > table > tbody > tr:eq(3) > td > table > tbody > tr > td > table:eq(0) > tbody > tr > td:eq(1) > a";
 		}
+		
+		Element element = getPage_body().select(query_string).first();
 	    
 		String path = element.attr("href");
 		

@@ -7,6 +7,7 @@ import data.ArtistToTry;
 import data.StringHashSetFromFile;
 import page.SputnikAlbumPage;
 import page.SputnikArtistPage;
+import page.SputnikPage;
 
 public class Tests {
 
@@ -37,6 +38,12 @@ public class Tests {
 			System.out.println(artist_page.getArtistTag());
 		};
 		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e4) {
+			// TODO Auto-generated catch block
+			e4.printStackTrace();
+		}
 		
 		// Test 2
 		SputnikAlbumPage album_page = null;
@@ -44,7 +51,7 @@ public class Tests {
 		try {
 			album_page = new SputnikAlbumPage("http://www.sputnikmusic.com/review/70817/BUS-The-Unknown-Secretary/");
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 		
 		SputnikArtistPage album_artist_page = album_page.getArtistPage();
@@ -64,6 +71,13 @@ public class Tests {
 			System.out.println(album_page.getAlbumName());
 		};
 		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		}
+		
 		// Test 3
 		try {
 			ArtistToTry artist = new ArtistToTry("The paper chase", "now you are one of us", "rock", new URL("http://www.sputnikmusic.com/bands/The-Paper-Chase/11287/"));
@@ -78,6 +92,13 @@ public class Tests {
 			e.printStackTrace();
 		}
 		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		
 		// Test 4
 		try {
 			StringHashSetFromFile unwanted_artists = new StringHashSetFromFile("program_files/UnwantedArtists.txt");
@@ -85,9 +106,31 @@ public class Tests {
 			System.out.println(unwanted_artists.contains("afasdfsda") ? "Test 4.2 Failed." : "Test 4.2 Passed.");
 		} catch (Exception e) {
 			e.printStackTrace();
+		}	
+	
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 		
+		// Test 5 
 		
+		try {
+			SputnikAlbumPage album_page5 = new SputnikAlbumPage("http://www.sputnikmusic.com/soundoff.php?albumid=218925");
+			if (album_page5.getArtistPage().getArtistName().equals("linda martini")) {
+				System.out.println("Test 5.1 passed");
+			};
+			album_page5 = new SputnikAlbumPage("http://www.sputnikmusic.com/review/70817/BUS-The-Unknown-Secretary/");
+			if (album_page5.getArtistPage().getArtistName().equals("bus")) {
+				System.out.println("Test 5.2 passed");
+			};
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
