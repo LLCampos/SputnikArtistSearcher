@@ -20,7 +20,7 @@ public class SputnikUserPage extends SputnikPage {
 	/**
 	 * Instantiates a new object of this class, representing the page given in the argument.
 	 *
-	 * @param album_page_url Is the URL of the SputnikMusic user's page.
+	 * @param page_url Is the URL of the SputnikMusic user's page.
 	 * @throws MalformedURLException 
 	 * @throws IllegalArgumentException If the URL given was not the URL of a user's page.
 	 */

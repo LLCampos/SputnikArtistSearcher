@@ -56,7 +56,7 @@ public class SputnikPage {
 	}
 
 	/**
-	 * Gets the an Element object representing everything inside the <body> tag.
+	 * Gets the an Element object representing everything inside the body tag.
 	 *
 	 * @return An {@code Element} representing the HTML body of the page.
 	 */

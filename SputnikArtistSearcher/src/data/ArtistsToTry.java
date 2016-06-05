@@ -54,7 +54,7 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 	/**
 	 * Updates this object, removing duplicates and artists that play genres that the user doesn't want to listen to.
 	 *
-	 * @param A set of artists that the user doesn't want to be recommended.
+	 * @param unwanted_artists A set of artists that the user doesn't want to be recommended.
 	 * @param unwanted_tags A set of tags, indicating the that the user doesn't want artists of that genres in the recommendations.
 	 */
 	public void update(StringHashSetFromFile unwanted_artists, StringHashSetFromFile unwanted_tags) {
