@@ -10,6 +10,13 @@ import data.ArtistsToTry;
 import data.StringHashSetFromFile;
 import page.SputnikUserPage;
 
+/**
+ * 
+ * This class a Program Session.
+ * 
+ * @author Luis Campos
+ *
+ */
 public class ProgramSession {
 	
 	private StringHashSetFromFile unwanted_artists;
@@ -17,6 +24,9 @@ public class ProgramSession {
 	private ArtistsToTry artists_to_try;
 	private ProgramSettings settings;
 	
+	/**
+	 * Starts a program session, loading all the necessary objects using the information in the settings.
+	 */
 	public ProgramSession() {
 		settings = ProgramSettings.load();
 		
@@ -24,7 +34,7 @@ public class ProgramSession {
 			unwanted_artists = new StringHashSetFromFile(settings.getUnwanted_artist_path());
 			unwanted_tags = new StringHashSetFromFile(settings.getUnwanted_tags_path());
 		} catch (FileNotFoundException e) {
-			e.getMessage();
+			e.printStackTrace();
 		}
 		
 		try {
@@ -34,10 +44,18 @@ public class ProgramSession {
 		}
 	}
 	
+	/**
+	 * The first artist of ArtistsToTry, which will be the one presented to the user.
+	 * @return the artist to be presented to the user.
+	 */
 	public ArtistToTry getCurrentArtist() {
 		return artists_to_try.get(0);
 	}
 	
+	
+	/**
+	 * Adds the artist currently being presented to the user to the list of unwanted artists.
+	 */
 	public void addCurrentArtistToUnwantedArtists() {
 		unwanted_artists.add(getCurrentArtist().getArtist_name());
 		try {
@@ -47,6 +65,9 @@ public class ProgramSession {
 		}
 	}
 	
+	/**
+	 * Adds the main tag of the artist currently being presented to the user to the list of unwanted tags.
+	 */
 	public void addToUnwantedTags() {
 		unwanted_tags.add(getCurrentArtist().getMain_tag());
 		try {
@@ -57,36 +78,46 @@ public class ProgramSession {
 		
 	}
 	
+	/**
+	 * Actions to take if the user decides to go to the next artist.
+	 */
 	public void nextArtist() {
+		
 		addCurrentArtistToUnwantedArtists();
 		artists_to_try.remove(getCurrentArtist());
 		artists_to_try.update(unwanted_artists, unwanted_tags);
+		
 		try {
 			artists_to_try.saveObject(settings.getArtiststotryfile_path());
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
+	/**
+	 * Actions to take if the user decides to avoid the tag of the current artist.
+	 */
 	public void avoidTag() {
+		
 		addToUnwantedTags();
 		artists_to_try.remove(getCurrentArtist());
 		artists_to_try.update(unwanted_artists, unwanted_tags);
+		
 		try {
 			artists_to_try.saveObject(settings.getArtiststotryfile_path());
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
 	}
 	
+	/**
+	 * Actions to take if the user decides to add the artist currently being presented to the list
+	 * of artists of the CamposMusic software, also devoloped by Luis Campos.
+	 */
 	public void addToCamposMusicList() {
 		try {
 			FileWriter writer = new FileWriter(settings.getCamposmusiclist_path(), true);
@@ -99,6 +130,13 @@ public class ProgramSession {
 		nextArtist();
 	}
 	
+	/**
+	 * 
+	 * Actions to take when the user submits an user's rating page URL to get new artists.
+	 * 
+	 * @param an SputnikMusic user's rating page URL
+	 * @return
+	 */
 	public Boolean addArtistsFromSputnikURL(String url_str) {
 		try {
 			SputnikUserPage user_page = new SputnikUserPage(url_str);
