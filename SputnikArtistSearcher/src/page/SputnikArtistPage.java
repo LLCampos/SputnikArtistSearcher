@@ -5,7 +5,7 @@ import java.net.MalformedURLException;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class SputnikArtistPage extends Page {
+public class SputnikArtistPage extends SputnikPage {
 	
 	public SputnikArtistPage(String page_url) throws MalformedURLException {
 		//TODO Checkar se o URL é da página de um artista

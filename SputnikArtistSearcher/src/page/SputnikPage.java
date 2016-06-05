@@ -7,12 +7,12 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 
 /**
- * This class is used to represent a HTML page.
+ * This class is used to represent a SputnikMusic web page.
  * 
  * @author Luis Campos
  */
 
-public class Page {
+public class SputnikPage {
 	
 	/**
 	 * URL of the page the object represents.
@@ -29,7 +29,7 @@ public class Page {
 	 * @param page_url a {@code String} representing the URL of the page.
 	 * @throws MalformedURLException if the URL given is malformed.
 	 */
-	public Page(String page_url) throws MalformedURLException {
+	public SputnikPage(String page_url) throws MalformedURLException {
 		
 		//TODO Checkar se o URL é do SputnikMusic
 		

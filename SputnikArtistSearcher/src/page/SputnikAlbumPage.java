@@ -11,7 +11,7 @@ import org.jsoup.nodes.Element;
  *
  */
 
-public class SputnikAlbumPage extends Page {
+public class SputnikAlbumPage extends SputnikPage {
 
 	/**
 	 * 

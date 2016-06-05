@@ -8,7 +8,7 @@ import org.jsoup.select.Elements;
 
 import data.StringHashSetFromFile;
 
-public class SputnikUserPage extends Page {
+public class SputnikUserPage extends SputnikPage {
 
 	public SputnikUserPage(String page_url) throws MalformedURLException {
 		//TODO Checkar se o URL é da página de um user
