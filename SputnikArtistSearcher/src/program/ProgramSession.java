@@ -69,7 +69,7 @@ public class ProgramSession {
 	public void addToCamposMusicList() {
 		try {
 			FileWriter writer = new FileWriter(settings.getCamposmusiclist_path(), true);
-			writer.append(getCurrentArtist().getArtist_name() + " " + getCurrentArtist().getBest_album_name() + ",,\n");
+			writer.append(getCurrentArtist().getArtist_name() + " " + getCurrentArtist().getAlbum_name() + ",,\n");
 			writer.close();
 		} catch (Exception e) {
 			e.printStackTrace();
