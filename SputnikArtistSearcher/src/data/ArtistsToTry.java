@@ -11,9 +11,9 @@ import page.SputnikArtistPage;
 import page.SputnikUserPage;
 
 /**
- * The Class ArtistsToListenTo.
+ * The Class ArtistsToTry.
  */
-public class ArtistsToListenTo extends ArrayList<Artist> implements Serializable {
+public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable {
 	
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -37,7 +37,7 @@ public class ArtistsToListenTo extends ArrayList<Artist> implements Serializable
 				continue;
 			}
 			
-			add(new Artist(album_artist_page.getArtistName(), album_page.getAlbumName(), album_artist_page.getArtistTag(), album_artist_page.getPage_url()));
+			add(new ArtistToTry(album_artist_page.getArtistName(), album_page.getAlbumName(), album_artist_page.getArtistTag(), album_artist_page.getPage_url()));
 		}
 	}
 	
@@ -49,9 +49,9 @@ public class ArtistsToListenTo extends ArrayList<Artist> implements Serializable
 	 */
 	public void update(StringHashSetFromFile unwanted_artists, StringHashSetFromFile unwanted_tags) {
 		
-		 ArtistsToListenTo list = (ArtistsToListenTo) this.clone();
+		 ArtistsToTry list = (ArtistsToTry) this.clone();
 		
-		for (Artist artist : list) {
+		for (ArtistToTry artist : list) {
 			if (unwanted_artists.contains(artist.getArtist_name()) || unwanted_tags.contains(artist.getMain_tag())) {
 				remove(artist);
 			}
@@ -64,13 +64,13 @@ public class ArtistsToListenTo extends ArrayList<Artist> implements Serializable
 	 * @param file_path the file_path
 	 * @return the artists to try
 	 */
-	public static ArtistsToListenTo loadObject(String file_path) {
+	public static ArtistsToTry loadObject(String file_path) {
 		
-		ArtistsToListenTo artists_to_try = null;
+		ArtistsToTry artists_to_try = null;
 		
 		try {
 			ObjectInputStream is = new ObjectInputStream (new FileInputStream(file_path));
-			artists_to_try = (ArtistsToListenTo) is.readObject();
+			artists_to_try = (ArtistsToTry) is.readObject();
 			is.close();
 		} catch (Exception e) {
 			e.printStackTrace();

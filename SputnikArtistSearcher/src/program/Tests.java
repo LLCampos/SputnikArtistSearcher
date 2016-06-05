@@ -3,7 +3,7 @@ package program;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import data.Artist;
+import data.ArtistToTry;
 import data.StringHashSetFromFile;
 import page.SputnikAlbumPage;
 import page.SputnikArtistPage;
@@ -66,7 +66,7 @@ public class Tests {
 		
 		// Test 3
 		try {
-			Artist artist = new Artist("The paper chase", "now you are one of us", "rock", new URL("http://www.sputnikmusic.com/bands/The-Paper-Chase/11287/"));
+			ArtistToTry artist = new ArtistToTry("The paper chase", "now you are one of us", "rock", new URL("http://www.sputnikmusic.com/bands/The-Paper-Chase/11287/"));
 			
 			if (artist.getYoutube_url().toString().equals("https://www.youtube.com/results?search_query=the+paper+chase+now+you+are+one+of+us")) {
 				System.out.println("Test 3 passed.");
