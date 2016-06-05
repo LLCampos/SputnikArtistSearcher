@@ -8,23 +8,28 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
 
+/**
+ * This Class represents a list of entities the user doesn't want, a type of blacklist. 
+ * For example, a list of artists the user doesn't want to be recommended to her.
+ * 
+ * @author Luis Campos
+ *
+ */
+@SuppressWarnings("serial")
 public class Unwanteds extends HashSet<String> {
 	
-	private static final long serialVersionUID = 1L;
-
-	public Unwanteds(String file_path) {
+	/**
+	 * 
+	 * @param file_path Is the path to the .txt file with a list of strings, separated by newlines.
+	 * @throws FileNotFoundException If no file is found in the path given.
+	 */
+	public Unwanteds(String file_path) throws FileNotFoundException {
 		
-		try {
-			
-			Scanner scanner = new Scanner(new FileReader(file_path));
-			while (scanner.hasNext()) {
-				add(scanner.nextLine());
-			}
-			scanner.close();
-			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} 
+		Scanner scanner = new Scanner(new FileReader(file_path));
+		while (scanner.hasNext()) {
+			add(scanner.nextLine());
+		}
+		scanner.close();
 	}
 	
 	public void save(String path) {
