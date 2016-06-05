@@ -17,6 +17,14 @@ import javax.swing.JPanel;
 import javax.swing.JOptionPane;
 import java.awt.Desktop;
 
+/**
+ * 
+ * Class used to launch the application.
+ * 
+ * @author Luis Campos
+ *
+ */
+
 public class Program {
 
 	private JFrame frame;
@@ -131,20 +139,20 @@ public class Program {
 		panel.add(btnAddArtists);
 	}
 	
-	public void updateArtistNameLabel(JLabel artist_name_label) {
+	private void updateArtistNameLabel(JLabel artist_name_label) {
 		artist_name_label.setText("Artist Name: " + session.getCurrentArtist().getArtist_name());
 	}
 	
-	public void updateTagLabel(JLabel tag_name_label) {
+	private void updateTagLabel(JLabel tag_name_label) {
 		tag_name_label.setText("Tag: " + session.getCurrentArtist().getMain_tag());
 	}
 	
-	public void updateLabels(JLabel artist_name_label, JLabel tag_name_label) {
+	private void updateLabels(JLabel artist_name_label, JLabel tag_name_label) {
 		updateArtistNameLabel(artist_name_label);
 		updateTagLabel(tag_name_label);
 	}
 	
-	public void goToYoutubeVideo() {
+	private void goToYoutubeVideo() {
 		try {
 			Desktop.getDesktop().browse(session.getCurrentArtist().getYoutube_url().toURI());
 		} catch (Exception e) {
