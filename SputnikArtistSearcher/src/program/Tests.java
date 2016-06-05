@@ -4,7 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import data.ArtistToTry;
-import data.UnwantedArtists;
+import data.Unwanteds;
 import page.SputnikAlbumPage;
 import page.SputnikArtistPage;
 
@@ -13,7 +13,13 @@ public class Tests {
 	public static void main(String[] args) {
 		
 		// Test 1
-		SputnikArtistPage artist_page = new SputnikArtistPage("http://www.sputnikmusic.com/bands/Arctic-Monkeys/1847/");
+		SputnikArtistPage artist_page =  null;
+		
+		try {
+			artist_page = new SputnikArtistPage("http://www.sputnikmusic.com/bands/Arctic-Monkeys/1847/");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		if (artist_page.getArtistName().equals("arctic monkeys")) {
 			System.out.println("Test 1.1 passed.");
@@ -33,7 +39,13 @@ public class Tests {
 		
 		
 		// Test 2
-		SputnikAlbumPage album_page = new SputnikAlbumPage("http://www.sputnikmusic.com/review/70817/BUS-The-Unknown-Secretary/");
+		SputnikAlbumPage album_page = null;
+		
+		try {
+			album_page = new SputnikAlbumPage("http://www.sputnikmusic.com/review/70817/BUS-The-Unknown-Secretary/");
+		} catch (Exception e) {
+			
+		}
 		
 		SputnikArtistPage album_artist_page = album_page.getArtistPage();
 		if (album_artist_page.getPage_url().toString().equals("http://www.sputnikmusic.com//bands/BUS/62292/")) {
@@ -68,7 +80,7 @@ public class Tests {
 		
 		// Test 4
 		try {
-			UnwantedArtists unwanted_artists = new UnwantedArtists("program_files/UnwantedArtists.txt");
+			Unwanteds unwanted_artists = new Unwanteds("program_files/UnwantedArtists.txt");
 			System.out.println(unwanted_artists.contains("arcade fire") ? "Test 4.1 Passed." : "Test 4.1 Failed.");
 			System.out.println(unwanted_artists.contains("afasdfsda") ? "Test 4.2 Failed." : "Test 4.2 Passed.");
 		} catch (Exception e) {
