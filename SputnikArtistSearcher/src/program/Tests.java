@@ -1,9 +1,12 @@
 package program;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 import data.ArtistToTry;
+import data.ArtistsToTry;
 import data.StringHashSetFromFile;
 import page.SputnikAlbumPage;
 import page.SputnikArtistPage;
@@ -127,10 +130,17 @@ public class Tests {
 			if (album_page5.getArtistPage().getArtistName().equals("bus")) {
 				System.out.println("Test 5.2 passed");
 			};
+			album_page5 = new SputnikAlbumPage("http://www.sputnikmusic.com/album/217781/BUS-The-Unknown-Secretary/");
+			if (album_page5.getArtistPage().getArtistName().equals("bus")) {
+				System.out.println("Test 5.3 passed");
+			};
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+
 		
 	}
 
