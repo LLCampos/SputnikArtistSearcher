@@ -26,13 +26,17 @@ public class SputnikPage {
 	
 	/**
 	 * 
+	 * The first part of the URL path. 
 	 */
 	private String path_first;
 	
 	
 	/**
+	 * This Class represents a SputnikMusic page.
+	 *
 	 * @param page_url a {@code String} representing the URL of the page.
 	 * @throws MalformedURLException if the URL given is malformed.
+	 * @throws IllegalArgumentException the illegal argument exception
 	 */
 	public SputnikPage(String page_url) throws MalformedURLException, IllegalArgumentException {
 		
@@ -48,11 +52,12 @@ public class SputnikPage {
 			e.printStackTrace();
 		}
 		
-		setPath_first(this.getPage_url().getPath().split("/")[1]);
+		this.path_first = this.getPage_url().getPath().split("/")[1];
 	}
 
 	/**
-	 * 
+	 * Gets the an Element object representing everything inside the <body> tag.
+	 *
 	 * @return An {@code Element} representing the HTML body of the page.
 	 */
 	public Element getPage_body() {
@@ -60,6 +65,7 @@ public class SputnikPage {
 	}
 	
 	/**
+	 * Gets the URL of the page the object represents.
 	 *
 	 * @return The page URL.
 	 */
@@ -67,12 +73,14 @@ public class SputnikPage {
 		return page_url;
 	}
 
+
+	/**
+	 * Gets the the first part of the URL path.
+	 *
+	 * @return the the first part of the URL path
+	 */
 	public String getPath_first() {
 		return path_first;
-	}
-
-	public void setPath_first(String path_first) {
-		this.path_first = path_first;
 	}
 	
 }
