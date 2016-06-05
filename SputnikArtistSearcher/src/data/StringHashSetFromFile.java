@@ -64,10 +64,10 @@ public class StringHashSetFromFile extends HashSet<String> {
 	
 	
 	/**
-	 * Adds str to set of Unwanted entities.
+	 * Adds a String to the set.
 	 * 
-	 * @param str A string of the entities to add to set.
-	 * @return false if entities is already in set. true otherwise.
+	 * @param str A String to add to set.
+	 * @return false If String is already in set. true otherwise.
 	 */
 	public boolean add(String str) {
 		return super.add(str.toLowerCase());
