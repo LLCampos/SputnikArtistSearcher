@@ -25,11 +25,9 @@ public class SputnikAlbumPage extends SputnikPage {
 		
 		// There are 3 types of URLs that corresponds to album pages. If the URL given does not match any of them, 
 		// throw exception.
-		String path_first = this.getPage_url().getPath().split("/")[1];
-		if ((!path_first.equals("review")) && (!path_first.equals("album")) && (!path_first.equals("soundoff.php"))) {
+		if ((!getPath_first().equals("review")) && (!getPath_first().equals("album")) && (!getPath_first().equals("soundoff.php"))) {
 			throw new IllegalArgumentException("The URL has to be of a album page.");
 		}
-		
 	}
 	
 	/**
@@ -49,10 +47,14 @@ public class SputnikAlbumPage extends SputnikPage {
 		
 		String path = element.attr("href");
 		
+		if (!path.startsWith("/")) {
+			path = "/" + path;
+		}
+		
 		SputnikArtistPage artist_page = null;
 		
 		try {
-			artist_page = new SputnikArtistPage(getPage_url().getProtocol() + "://" + getPage_url().getHost() + "/" + path);
+			artist_page = new SputnikArtistPage(getPage_url().getProtocol() + "://" + getPage_url().getHost() + path);
 		} catch (MalformedURLException e) {
 			System.out.println(e.getMessage());
 			System.out.println("There was some problem in the formation of the URL.");

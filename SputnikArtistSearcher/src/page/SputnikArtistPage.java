@@ -7,9 +7,13 @@ import org.jsoup.select.Elements;
 
 public class SputnikArtistPage extends SputnikPage {
 	
-	public SputnikArtistPage(String page_url) throws MalformedURLException {
-		//TODO Checkar se o URL é da página de um artista
+	public SputnikArtistPage(String page_url) throws MalformedURLException, IllegalArgumentException {
 		super(page_url);
+		
+		if (!getPath_first().equals("bands")) {
+			System.out.println(getPage_url().toString());
+			throw new IllegalArgumentException("The URL has to be of a artist page.");
+		}
 	}
 	
 	public String getArtistName() {

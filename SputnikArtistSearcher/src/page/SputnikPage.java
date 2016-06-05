@@ -24,6 +24,11 @@ public class SputnikPage {
 	 */
 	private Element page_body;
 	
+	/**
+	 * 
+	 */
+	private String path_first;
+	
 	
 	/**
 	 * @param page_url a {@code String} representing the URL of the page.
@@ -42,6 +47,8 @@ public class SputnikPage {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		setPath_first(this.getPage_url().getPath().split("/")[1]);
 	}
 
 	/**
@@ -58,6 +65,14 @@ public class SputnikPage {
 	 */
 	public URL getPage_url() {
 		return page_url;
+	}
+
+	public String getPath_first() {
+		return path_first;
+	}
+
+	public void setPath_first(String path_first) {
+		this.path_first = path_first;
 	}
 	
 }

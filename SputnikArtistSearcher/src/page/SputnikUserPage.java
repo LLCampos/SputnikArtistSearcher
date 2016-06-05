@@ -10,9 +10,12 @@ import data.StringHashSetFromFile;
 
 public class SputnikUserPage extends SputnikPage {
 
-	public SputnikUserPage(String page_url) throws MalformedURLException {
-		//TODO Checkar se o URL é da página de um user
+	public SputnikUserPage(String page_url) throws MalformedURLException, IllegalArgumentException {
 		super(page_url);
+		
+		if (!getPath_first().equals("uservote.php")) {
+			throw new IllegalArgumentException("The URL has to be of a user ratings page.");
+		}
 	}
 	
 	public HashSet<SputnikAlbumPage> getFavoriteAlbumsPages(StringHashSetFromFile unwanted_artists) {
