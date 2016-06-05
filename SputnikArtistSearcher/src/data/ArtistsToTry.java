@@ -23,7 +23,7 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * Gets a list of ArtistToTry fom a SputnikMusic user page and adds it to this object.
+	 * Gets a list of ArtistToTry from a SputnikMusic user page and adds it to this object.
 	 *
 	 * @param user_page The SputnikMusic user rating page from which to get names of artists.
 	 * @param unwanted_artists A set of artists that the user doesn't want to be recommended.
