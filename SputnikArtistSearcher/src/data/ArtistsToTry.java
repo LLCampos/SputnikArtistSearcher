@@ -11,7 +11,11 @@ import page.SputnikArtistPage;
 import page.SputnikUserPage;
 
 /**
- * The Class ArtistsToTry.
+ * 
+ * This Class represents a list of musical artists/groups for the user to listen.
+ * 
+ * @author Luis Campos
+ *
  */
 public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable {
 	
@@ -19,11 +23,11 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * Adds the artist to try from sputnik user page.
+	 * Gets a list of ArtistToTry fom a SputnikMusic user page and adds it to this object.
 	 *
-	 * @param user_page the user_page
-	 * @param unwanted_artists the unwanted_artists
-	 * @param unwanted_tags the unwanted_tags
+	 * @param user_page The SputnikMusic user rating page from which to get names of artists.
+	 * @param unwanted_artists A set of artists that the user doesn't want to be recommended.
+	 * @param unwanted_tags A set of tags, indicating the that the user doesn't want artists of that genres in the recommendations.
 	 */
 	public void addArtistToTryFromSputnikUserPage(SputnikUserPage user_page, StringHashSetFromFile unwanted_artists, StringHashSetFromFile unwanted_tags) {
 		
@@ -42,10 +46,10 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 	}
 	
 	/**
-	 * Update.
+	 * Updates this object, removing duplicates and artists that play genres that the user doesn't want to listen to.
 	 *
-	 * @param unwanted_artists the unwanted_artists
-	 * @param unwanted_tags the unwanted_tags
+	 * @param A set of artists that the user doesn't want to be recommended.
+	 * @param unwanted_tags A set of tags, indicating the that the user doesn't want artists of that genres in the recommendations.
 	 */
 	public void update(StringHashSetFromFile unwanted_artists, StringHashSetFromFile unwanted_tags) {
 		
@@ -59,10 +63,10 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 	}
 	
 	/**
-	 * Load object.
+	 * Loads a instance of this class from a serialised version.
 	 *
-	 * @param file_path the file_path
-	 * @return the artists to try
+	 * @param file_path The path to the .ser file.
+	 * @return An instance of this Class
 	 */
 	public static ArtistsToTry loadObject(String file_path) {
 		
@@ -80,9 +84,9 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 	}
 	
 	/**
-	 * Save object.
+	 * Serialises this objects and saves it to a file.
 	 *
-	 * @param file_path the file_path
+	 * @param file_path The path on which to save the file resulting from the serialisation of this object.
 	 */
 	public void saveObject(String file_path) {
 		try {
