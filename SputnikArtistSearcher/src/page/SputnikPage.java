@@ -29,11 +29,13 @@ public class SputnikPage {
 	 * @param page_url a {@code String} representing the URL of the page.
 	 * @throws MalformedURLException if the URL given is malformed.
 	 */
-	public SputnikPage(String page_url) throws MalformedURLException {
-		
-		//TODO Checkar se o URL é do SputnikMusic
+	public SputnikPage(String page_url) throws MalformedURLException, IllegalArgumentException {
 		
 		this.page_url = new URL(page_url);
+		
+		if (!this.page_url.getHost().equals("www.sputnikmusic.com")) {
+			throw new IllegalArgumentException("The URL given should redirect to a SputnikMusic hosted webage");
+		}; 
 		
 		try {
 			this.page_body = Jsoup.connect(this.page_url.toString()).get().body();
