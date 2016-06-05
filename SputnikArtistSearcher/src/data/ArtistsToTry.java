@@ -1,11 +1,16 @@
 package data;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import org.apache.commons.io.FilenameUtils;
+
 import page.SputnikAlbumPage;
 import page.SputnikArtistPage;
 import page.SputnikUserPage;
@@ -67,18 +72,22 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 	 *
 	 * @param file_path The path to the .ser file.
 	 * @return An instance of this Class
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
+	 * @throws ClassNotFoundException 
+	 * @throws IllegalArgumentException If file is not in the required format.
 	 */
-	public static ArtistsToTry loadObject(String file_path) {
+	public static ArtistsToTry loadObject(String file_path) throws FileNotFoundException, IOException, ClassNotFoundException, IllegalArgumentException {
+				
+		if (!FilenameUtils.getExtension(file_path).equals("ser")) {
+			throw new IllegalArgumentException("The file has to be in .ser format");
+		};
 		
-		ArtistsToTry artists_to_try = null;
+		ObjectInputStream is = new ObjectInputStream (new FileInputStream(file_path));
 		
-		try {
-			ObjectInputStream is = new ObjectInputStream (new FileInputStream(file_path));
-			artists_to_try = (ArtistsToTry) is.readObject();
-			is.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		ArtistsToTry artists_to_try = (ArtistsToTry) is.readObject();
+		
+		is.close();
 		
 		return artists_to_try;
 	}

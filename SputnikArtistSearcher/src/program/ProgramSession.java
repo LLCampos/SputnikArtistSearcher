@@ -26,7 +26,11 @@ public class ProgramSession {
 			e.getMessage();
 		}
 		
-		artists_to_try = ArtistsToTry.loadObject(settings.getArtiststotryfile_path());
+		try {
+			artists_to_try = ArtistsToTry.loadObject(settings.getArtiststotryfile_path());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public ArtistToTry getCurrentArtist() {
