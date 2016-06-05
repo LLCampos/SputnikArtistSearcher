@@ -1,18 +1,22 @@
 package page;
 
+import java.net.MalformedURLException;
+
+
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import data.FavoriteAlbumsPages;
-import data.UnwantedArtists;
+import data.Unwanteds;
 
 public class SputnikUserPage extends Page {
 
-	public SputnikUserPage(String page_url) {
+	public SputnikUserPage(String page_url) throws MalformedURLException {
+		//TODO Checkar se o URL é da página de um user
 		super(page_url);
 	}
 	
-	public FavoriteAlbumsPages getFavoriteAlbumsPages(UnwantedArtists unwanted_artists) {
+	public FavoriteAlbumsPages getFavoriteAlbumsPages(Unwanteds unwanted_artists) {
 		
 		Elements elements = getPage_body().select(".profilebox ");
 		
@@ -27,11 +31,17 @@ public class SputnikUserPage extends Page {
 				String artist_name = element.select("font").first().ownText().toLowerCase();
 				
 				if (!unwanted_artists.contains(artist_name)) {
-					System.out.println(artist_name);
-					albums_pages.add(new SputnikAlbumPage(getPage_url().getProtocol() + "://" + getPage_url().getHost() + element.attr("href")));
 					try {
+						System.out.println(artist_name);
+						SputnikAlbumPage album_page = new SputnikAlbumPage(getPage_url().getProtocol() + "://" + getPage_url().getHost() + element.attr("href"));
+						albums_pages.add(album_page);
 						Thread.sleep(1000);
-					} catch (Exception e) {
+						
+					} catch (MalformedURLException e){
+						System.out.println(e.getMessage());
+						System.out.println("There was some problem in the formation of the URL.");
+						continue;
+					} catch (InterruptedException e) {
 						e.getStackTrace();
 					}
 					
