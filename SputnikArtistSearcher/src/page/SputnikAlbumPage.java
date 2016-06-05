@@ -36,7 +36,7 @@ public class SputnikAlbumPage extends SputnikPage {
 		SputnikArtistPage artist_page = null;
 		
 		try {
-			new SputnikArtistPage(getPage_url().getProtocol() + "://" + getPage_url().getHost() + "/" + path);
+			artist_page = new SputnikArtistPage(getPage_url().getProtocol() + "://" + getPage_url().getHost() + "/" + path);
 		} catch (MalformedURLException e) {
 			System.out.println(e.getMessage());
 			System.out.println("There was some problem in the formation of the URL.");
