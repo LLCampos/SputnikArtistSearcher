@@ -17,7 +17,7 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public void addArtistToTryFromSputnikUserPage(SputnikUserPage user_page, Unwanteds unwanted_artists, Unwanteds unwanted_tags) {
+	public void addArtistToTryFromSputnikUserPage(SputnikUserPage user_page, StringHashSetFromFile unwanted_artists, StringHashSetFromFile unwanted_tags) {
 		
 		FavoriteAlbumsPages favorite_album_pages = user_page.getFavoriteAlbumsPages(unwanted_artists);
 		
@@ -33,7 +33,7 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 		}
 	}
 	
-	public void update(Unwanteds unwanted_artists, Unwanteds unwanted_tags) {
+	public void update(StringHashSetFromFile unwanted_artists, StringHashSetFromFile unwanted_tags) {
 		
 		 ArtistsToTry list = (ArtistsToTry) this.clone();
 		

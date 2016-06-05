@@ -4,7 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import data.ArtistToTry;
-import data.Unwanteds;
+import data.StringHashSetFromFile;
 import page.SputnikAlbumPage;
 import page.SputnikArtistPage;
 
@@ -80,12 +80,13 @@ public class Tests {
 		
 		// Test 4
 		try {
-			Unwanteds unwanted_artists = new Unwanteds("program_files/UnwantedArtists.txt");
+			StringHashSetFromFile unwanted_artists = new StringHashSetFromFile("program_files/UnwantedArtists.txt");
 			System.out.println(unwanted_artists.contains("arcade fire") ? "Test 4.1 Passed." : "Test 4.1 Failed.");
 			System.out.println(unwanted_artists.contains("afasdfsda") ? "Test 4.2 Failed." : "Test 4.2 Passed.");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		
 		
 	}

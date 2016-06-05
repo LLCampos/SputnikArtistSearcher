@@ -11,14 +11,14 @@ import java.util.Scanner;
 import org.apache.commons.io.FilenameUtils;
 
 /**
- * This Class represents a list of entities the user doesn't want, a type of blacklist. 
- * For example, a list of artists the user doesn't want to be recommended to her.
+ * This Class represents a set of strings obtained from a newline-separated .txt file. 
+ * Every member of the set is in lowercase.
  * 
  * @author Luis Campos
  *
  */
 @SuppressWarnings("serial")
-public class Unwanteds extends HashSet<String> {
+public class StringHashSetFromFile extends HashSet<String> {
 	
 	/**
 	 * 
@@ -26,7 +26,7 @@ public class Unwanteds extends HashSet<String> {
 	 * @throws FileNotFoundException If no file is found in the path given.
 	 * @throws IllegalArgumentException If the file is not in .txt extension.
 	 */
-	public Unwanteds(String file_path) throws FileNotFoundException, IllegalArgumentException {
+	public StringHashSetFromFile(String file_path) throws FileNotFoundException, IllegalArgumentException {
 		
 		Scanner scanner = new Scanner(new FileReader(file_path));
 		

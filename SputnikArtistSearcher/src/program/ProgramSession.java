@@ -6,13 +6,13 @@ import java.net.MalformedURLException;
 
 import data.ArtistToTry;
 import data.ArtistsToTry;
-import data.Unwanteds;
+import data.StringHashSetFromFile;
 import page.SputnikUserPage;
 
 public class ProgramSession {
 	
-	private Unwanteds unwanted_artists;
-	private Unwanteds unwanted_tags;
+	private StringHashSetFromFile unwanted_artists;
+	private StringHashSetFromFile unwanted_tags;
 	private ArtistsToTry artists_to_try;
 	private ProgramSettings settings;
 	
@@ -20,8 +20,8 @@ public class ProgramSession {
 		settings = ProgramSettings.load();
 		
 		try {
-			unwanted_artists = new Unwanteds(settings.getUnwanted_artist_path());
-			unwanted_tags = new Unwanteds(settings.getUnwanted_tags_path());
+			unwanted_artists = new StringHashSetFromFile(settings.getUnwanted_artist_path());
+			unwanted_tags = new StringHashSetFromFile(settings.getUnwanted_tags_path());
 		} catch (FileNotFoundException e) {
 			e.getMessage();
 		}
@@ -35,12 +35,21 @@ public class ProgramSession {
 	
 	public void addCurrentArtistToUnwantedArtists() {
 		unwanted_artists.add(getCurrentArtist().getArtist_name());
-		unwanted_artists.save(settings.getUnwanted_artist_path());
+		try {
+			unwanted_artists.save(settings.getUnwanted_artist_path());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void addToUnwantedTags() {
 		unwanted_tags.add(getCurrentArtist().getMain_tag());
-		unwanted_tags.save(settings.getUnwanted_tags_path());
+		try {
+			unwanted_tags.save(settings.getUnwanted_tags_path());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public void nextArtist() {

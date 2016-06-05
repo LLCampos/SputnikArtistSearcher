@@ -7,7 +7,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import data.FavoriteAlbumsPages;
-import data.Unwanteds;
+import data.StringHashSetFromFile;
 
 public class SputnikUserPage extends Page {
 
@@ -16,7 +16,7 @@ public class SputnikUserPage extends Page {
 		super(page_url);
 	}
 	
-	public FavoriteAlbumsPages getFavoriteAlbumsPages(Unwanteds unwanted_artists) {
+	public FavoriteAlbumsPages getFavoriteAlbumsPages(StringHashSetFromFile unwanted_artists) {
 		
 		Elements elements = getPage_body().select(".profilebox ");
 		
