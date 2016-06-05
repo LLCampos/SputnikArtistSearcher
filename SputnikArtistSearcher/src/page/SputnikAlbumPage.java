@@ -14,14 +14,16 @@ import org.jsoup.nodes.Element;
 public class SputnikAlbumPage extends SputnikPage {
 	
 	/**
-	 * 
+	 * Instantiates a new object of this class, representing the page given in the argument.
+	 *
 	 * @param album_page_url Is the URL of the SputnikMusic album page.
-	 * @throws MalformedURLException
+	 * @throws MalformedURLException 
+	 * @throws IllegalArgumentException 
 	 */
 	public SputnikAlbumPage(String album_page_url) throws MalformedURLException, IllegalArgumentException {
 		super(album_page_url);
 		
-		// There are 3 types of URLs that corresponde to album pages. If the URL given does not match any of them, 
+		// There are 3 types of URLs that corresponds to album pages. If the URL given does not match any of them, 
 		// throw exception.
 		String path_first = this.getPage_url().getPath().split("/")[1];
 		if ((!path_first.equals("review")) && (!path_first.equals("album")) && (!path_first.equals("soundoff.php"))) {
@@ -29,11 +31,18 @@ public class SputnikAlbumPage extends SputnikPage {
 		}
 		
 	}
-
+	
+	/**
+	 * Gets the page of the artists/music group that play in this album.
+	 *
+	 * @return the artist page
+	 */
 	public SputnikArtistPage getArtistPage() {
 		
+		// Tries to get a Element which will contain the artist name.
 		Element element = getPage_body().select("table > tbody > tr:eq(1) > td > table:eq(0) > tbody > tr > td > table > tbody > tr:eq(3) > td > div > div:eq(0) > div:eq(0) > h1 > a").first();
 		
+		// If it doesn't work, try other way.
 		if (element == null) {
 			element = getPage_body().select("table > tbody > tr:eq(1) > td > table:eq(0) > tbody > tr > td > table > tbody > tr:eq(3) > td > table > tbody > tr > td > table:eq(0) > tbody > tr > td:eq(1) > a").first();
 		}
@@ -52,9 +61,17 @@ public class SputnikAlbumPage extends SputnikPage {
 		return artist_page;
 	}
 	
+	/**
+	 * Gets the album name.
+	 *
+	 * @return the album name
+	 */
 	public String getAlbumName() {
+		
+		// Tries to get a Element which will contain the album name.
 		Element element = getPage_body().select("table > tbody > tr:eq(1) > td > table:eq(0) > tbody > tr > td > table > tbody > tr:eq(3) > td > div > div:eq(0) > div:eq(0) > h1 > span").first();
 		
+		// If it doesn't work, try other way.
 		if (element == null) {
 			element = getPage_body().select("table > tbody > tr:eq(1) > td > table:eq(0) > tbody > tr > td > table > tbody > tr:eq(3) > td > table > tbody > tr > td > table:eq(0) > tbody > tr > td:eq(1) > font").first();
 		}
