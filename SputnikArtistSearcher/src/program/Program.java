@@ -12,11 +12,7 @@ import javax.swing.JPanel;
 
 
 import javax.swing.JOptionPane;
-import javax.swing.JPopupMenu;
-import java.awt.Component;
 import java.awt.Desktop;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class Program {
 
@@ -124,26 +120,6 @@ public class Program {
 		});
 		btnAddArtists.setBounds(334, 50, 110, 45);
 		panel.add(btnAddArtists);
-		
-		JButton btnChangeFileLocation = new JButton("Change File Location");
-		btnChangeFileLocation.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnChangeFileLocation.setBounds(334, 11, 131, 23);
-		panel.add(btnChangeFileLocation);
-		
-		JPopupMenu popupMenu = new JPopupMenu();
-		addPopup(btnChangeFileLocation, popupMenu);
-		
-		JButton btnNewButton = new JButton("CamposMusic List ");
-		popupMenu.add(btnNewButton);
-		
-		JButton btnUnwantedArtistsList = new JButton("Unwanted Artists List");
-		popupMenu.add(btnUnwantedArtistsList);
-		
-		JButton btnUnwantedTagsList = new JButton("Unwanted Tags List");
-		popupMenu.add(btnUnwantedTagsList);
 	}
 	
 	public void updateArtistNameLabel(JLabel artist_name_label) {
@@ -166,21 +142,5 @@ public class Program {
 			e.printStackTrace();
 		}
 	}
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
-	}
+
 }
