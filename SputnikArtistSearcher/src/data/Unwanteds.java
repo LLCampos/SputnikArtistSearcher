@@ -63,7 +63,12 @@ public class Unwanteds extends HashSet<String> {
 	}
 	
 	
-	
+	/**
+	 * Adds str to set of Unwanted entities.
+	 * 
+	 * @param str A string of the entities to add to set.
+	 * @return false if entities is already in set. true otherwise.
+	 */
 	public boolean add(String str) {
 		return super.add(str.toLowerCase());
 	}
