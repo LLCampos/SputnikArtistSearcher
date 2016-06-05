@@ -11,7 +11,7 @@ import java.net.URL;
  */
 
 //TODO Change class name to Artist or MusicGroup
-public class ArtistToTry implements Serializable {
+public class Artist implements Serializable {
 	
 
 	/** The Constant serialVersionUID. */
@@ -51,7 +51,7 @@ public class ArtistToTry implements Serializable {
 	 * @param main_tag Name of genre.
 	 * @param sputnik_url URL for the artist/music group SputnikMusic page.
 	 */
-	public ArtistToTry(String artist_name, String best_album_name, String main_tag, URL sputnik_url) {
+	public Artist(String artist_name, String best_album_name, String main_tag, URL sputnik_url) {
 		this.artist_name = artist_name.toLowerCase();
 		this.album_name = best_album_name.toLowerCase();
 		this.main_tag = main_tag.toLowerCase();

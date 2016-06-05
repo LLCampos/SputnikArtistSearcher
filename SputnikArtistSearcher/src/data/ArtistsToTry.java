@@ -10,13 +10,21 @@ import page.SputnikAlbumPage;
 import page.SputnikArtistPage;
 import page.SputnikUserPage;
 
-public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable {
+/**
+ * The Class ArtistsToTry.
+ */
+public class ArtistsToTry extends ArrayList<Artist> implements Serializable {
 	
-	/**
-	 * 
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Adds the artist to try from sputnik user page.
+	 *
+	 * @param user_page the user_page
+	 * @param unwanted_artists the unwanted_artists
+	 * @param unwanted_tags the unwanted_tags
+	 */
 	public void addArtistToTryFromSputnikUserPage(SputnikUserPage user_page, StringHashSetFromFile unwanted_artists, StringHashSetFromFile unwanted_tags) {
 		
 		FavoriteAlbumsPages favorite_album_pages = user_page.getFavoriteAlbumsPages(unwanted_artists);
@@ -29,21 +37,33 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 				continue;
 			}
 			
-			add(new ArtistToTry(album_artist_page.getArtistName(), album_page.getAlbumName(), album_artist_page.getArtistTag(), album_artist_page.getPage_url()));
+			add(new Artist(album_artist_page.getArtistName(), album_page.getAlbumName(), album_artist_page.getArtistTag(), album_artist_page.getPage_url()));
 		}
 	}
 	
+	/**
+	 * Update.
+	 *
+	 * @param unwanted_artists the unwanted_artists
+	 * @param unwanted_tags the unwanted_tags
+	 */
 	public void update(StringHashSetFromFile unwanted_artists, StringHashSetFromFile unwanted_tags) {
 		
 		 ArtistsToTry list = (ArtistsToTry) this.clone();
 		
-		for (ArtistToTry artist : list) {
+		for (Artist artist : list) {
 			if (unwanted_artists.contains(artist.getArtist_name()) || unwanted_tags.contains(artist.getMain_tag())) {
 				remove(artist);
 			}
 		}
 	}
 	
+	/**
+	 * Load object.
+	 *
+	 * @param file_path the file_path
+	 * @return the artists to try
+	 */
 	public static ArtistsToTry loadObject(String file_path) {
 		
 		ArtistsToTry artists_to_try = null;
@@ -59,6 +79,11 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 		return artists_to_try;
 	}
 	
+	/**
+	 * Save object.
+	 *
+	 * @param file_path the file_path
+	 */
 	public void saveObject(String file_path) {
 		try {
 			ObjectOutputStream os = new ObjectOutputStream (new FileOutputStream(file_path));

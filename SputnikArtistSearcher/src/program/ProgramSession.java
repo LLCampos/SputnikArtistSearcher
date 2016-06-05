@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.net.MalformedURLException;
 
-import data.ArtistToTry;
+import data.Artist;
 import data.ArtistsToTry;
 import data.StringHashSetFromFile;
 import page.SputnikUserPage;
@@ -29,7 +29,7 @@ public class ProgramSession {
 		artists_to_try = ArtistsToTry.loadObject(settings.getArtiststotryfile_path());
 	}
 	
-	public ArtistToTry getCurrentArtist() {
+	public Artist getCurrentArtist() {
 		return artists_to_try.get(0);
 	}
 	
