@@ -19,6 +19,7 @@ voxtrot
 subaeris
 friendly fires
 the vicious five
+the devil wears prada
 os pontos negros
 au revoir simone
 andrew bird's bowl of fire
@@ -26,6 +27,7 @@ yeah yeah yeahs
 and so i watch you from afar
 the bloody beetroots
 vampire weekend
+banks
 japandroids
 m83
 bon iver
@@ -46,6 +48,7 @@ antemasque
 kap bambino
 mitski
 peaches
+guns n' roses
 destroyer
 diabo na cruz
 alkaline trio
@@ -56,6 +59,7 @@ the national
 diiv
 m�o morta
 built to spill
+arcane roots
 frank turner
 buke and gase
 kaiser chiefs
@@ -67,6 +71,7 @@ junior boys
 yeasayer
 slint
 queens of the stone age
+kitchens of distinction
 cynic
 paus
 courtney barnett
@@ -100,14 +105,17 @@ sparta
 beirut
 xiu xiu
 chet faker
+wire
 the pragmatic
 ema
 yuck
 the drums
+joy division
 sigur r�s
 final fantasy
 every time i die
 alt-j
+my chemical romance
 gates
 koda
 foxes in fiction
@@ -120,14 +128,17 @@ orelha negra
 afi
 free peace
 cansei de ser sexy
+massive attack vs. burial
 mgmt
 shellac
 bj�rk
 the strokes
+broken bells
 doomcloud
 madame godard
 rise against
 okkervil river
+ellie goulding
 arctic monkeys
 young fathers
 la priest
@@ -150,6 +161,7 @@ oneida
 nothing
 iq
 marina &amp; the diamonds
+father john misty
 in flames
 converge
 lily allen
@@ -164,6 +176,7 @@ red hot chili peppers
 efterklang
 the pigeon detectives
 wolfmother
+anais mitchell
 the maccabees
 poli�a
 jake bugg
@@ -172,6 +185,7 @@ the horrors
 kelela
 of montreal
 crystal fighters
+sigur ros
 the king blues
 have a nice life
 pavement
@@ -211,6 +225,7 @@ revival hymns
 cloud nothings
 wolf alice
 the pains of being pure at heart
+the prodigy
 menomena
 acid drinkers
 the pillows
@@ -251,6 +266,8 @@ liars
 ...and you will know us by the trail of dead
 born ruffians
 foals
+glassjaw
+faith no more
 the walkmen
 the legendary tiger man
 edguy
@@ -259,16 +276,19 @@ pulled apart by horses
 children of bodom
 dropkick murphys
 city and colour
+partynextdoor
 kings of convenience
 elbow
 met� met�
 i break horses
 grimes
+emery
 washed out
 pictureplane
 the new pornographers
 fischerspooner
 interpol
+a day to remember
 burning airlines
 darkside
 ghost town [ca]
@@ -281,6 +301,7 @@ sylvan esso
 booka shade
 the last shadow puppets
 the main drag
+hrvrd
 lordi
 "you can't win, charlie brown"
 lorde
@@ -289,36 +310,46 @@ marmozets
 jamie xx
 sex pistols
 woodkid
+the protomen
 mr. bungle
 place vendome
 future islands
+miguel
 lcd soundsystem
+karnivool
 morphine
 silversun pickups
+say lou lou
 iceage
 gil scott-heron &amp; jamie xx
 ought
 biffy clyro
 the kills
 refused
+koji kondo
 waxahatchee
 porcupine tree
 the fratellis
 radiohead
 mando diao
+boards of canada
 son lux
+metric
 ash
 neon indian
 pulp
 bloc party
+foxygen
 the hotelier
 andrew bird
 primal scream
+sky ferreira
 petite noir
 broken social scene
 animals as leaders
 ryan adams &amp; the cardinals
 killer mike
+amorphis
 thurston moore
 nuno prata
 propagandhi
@@ -326,8 +357,10 @@ burial
 how to dress well
 alba lua
 deerhoof
+the features
 the allstar project
 eleanor friedberger
+pierce the veil
 the dismemberment plan
 apocalyptica
 lobster
@@ -345,6 +378,8 @@ xxyyxx
 beach house
 yo la tengo
 kasabian
+rammstein
+young guns
 the black keys
 the men
 the jezabels
@@ -372,14 +407,17 @@ oioai
 the paper chase
 clipping.
 unknown mortal orchestra
+dark tranquillity
 knapsack
 battles
 el guincho
 death grips
+gold panda
 men eater
 owen pallett
 kendrick lamar
 julian casablancas
+slipknot
 the mars volta
 ornatos violeta
 streetlight manifesto
@@ -388,9 +426,11 @@ anathema
 aphex twin
 explosions in the sky
 godspeed you! black emperor
+deftones
 the mountain goats
 preoccupations
 weezer
+john grant
 marmaduke duke
 unison
 gang gang dance
@@ -401,9 +441,11 @@ django django
 violent femmes
 sleater-kinney
 the management
+the beatles
 glasser
 gogol bordello
 low
+the dillinger escape plan
 the raconteurs
 blonde redhead
 mewithoutyou
@@ -418,14 +460,17 @@ white lies
 shitdisco
 ezra furman
 a jigsaw
+alice in chains
 feromona
 the joy formidable
 lightning bolt
 the shins
 russian circles
 elliott smith
+the gloaming
 wavves x cloud nothings
 sufjan stevens
+swans
 cults
 caribou
 the music
@@ -452,6 +497,7 @@ london grammar
 daughter
 warpaint
 the kooks
+brooke candy
 stolen babies
 "does it offend you, yeah?"
 the white stripes
@@ -470,11 +516,13 @@ editors
 sinergy
 them crooked vultures
 the bridgeheads
+marilyn manson
 leprous
 prawn
 kanye west
 haim
 rush
+linkin park
 dark dark dark
 nicolas jaar
 the ting tings
@@ -485,3 +533,4 @@ regina spektor
 rhye
 slash
 pepe delux�
+clinic
