@@ -96,16 +96,13 @@ public class ArtistsToTry extends ArrayList<ArtistToTry> implements Serializable
 	 * Serialises this objects and saves it to a file.
 	 *
 	 * @param file_path The path on which to save the file resulting from the serialisation of this object.
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
 	 */
-	public void saveObject(String file_path) {
-		try {
-			ObjectOutputStream os = new ObjectOutputStream (new FileOutputStream(file_path));
-			os.writeObject(this);
-			os.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+	public void saveObject(String file_path) throws FileNotFoundException, IOException {
+		ObjectOutputStream os = new ObjectOutputStream (new FileOutputStream(file_path));
+		os.writeObject(this);
+		os.close();
 	}
 	
 }

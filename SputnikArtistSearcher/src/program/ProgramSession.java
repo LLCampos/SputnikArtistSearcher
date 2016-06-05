@@ -2,6 +2,7 @@ package program;
 
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.net.MalformedURLException;
 
 import data.ArtistToTry;
@@ -60,14 +61,30 @@ public class ProgramSession {
 		addCurrentArtistToUnwantedArtists();
 		artists_to_try.remove(getCurrentArtist());
 		artists_to_try.update(unwanted_artists, unwanted_tags);
-		artists_to_try.saveObject(settings.getArtiststotryfile_path());
+		try {
+			artists_to_try.saveObject(settings.getArtiststotryfile_path());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void avoidTag() {
 		addToUnwantedTags();
 		artists_to_try.remove(getCurrentArtist());
 		artists_to_try.update(unwanted_artists, unwanted_tags);
-		artists_to_try.saveObject(settings.getArtiststotryfile_path());		
+		try {
+			artists_to_try.saveObject(settings.getArtiststotryfile_path());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 	}
 	
 	public void addToCamposMusicList() {
@@ -86,7 +103,15 @@ public class ProgramSession {
 		try {
 			SputnikUserPage user_page = new SputnikUserPage(url_str);
 			artists_to_try.addArtistToTryFromSputnikUserPage(user_page, unwanted_artists, unwanted_tags);
-			artists_to_try.saveObject(settings.getArtiststotryfile_path());
+			try {
+				artists_to_try.saveObject(settings.getArtiststotryfile_path());
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			return true;
 		} catch (MalformedURLException e) {
 			System.out.println(e.getMessage());
