@@ -30,7 +30,7 @@ public class StringHashSetFromFile extends HashSet<String> {
 		
 		Scanner scanner = new Scanner(new FileReader(file_path));
 		
-		if (FilenameUtils.getExtension(file_path) != "txt") {
+		if (!FilenameUtils.getExtension(file_path).equals("txt")) {
 			scanner.close();
 			throw new IllegalArgumentException("The file has to be in .txt format");
 		};
