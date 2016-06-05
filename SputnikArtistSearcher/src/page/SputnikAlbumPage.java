@@ -1,11 +1,26 @@
 package page;
 
+import java.net.MalformedURLException;
+
 import org.jsoup.nodes.Element;
+
+/**
+ * This class is used to represent a SputnikMusic album page (<a href="http://www.sputnikmusic.com/review/70879/Radiohead-A-Moon-Shaped-Pool/">Example</a>).
+ * 
+ * @author Luis Campos
+ *
+ */
 
 public class SputnikAlbumPage extends Page {
 
-	public SputnikAlbumPage(String page_url) {
-		super(page_url);
+	/**
+	 * 
+	 * @param album_page_url
+	 * @throws MalformedURLException
+	 */
+	public SputnikAlbumPage(String album_page_url) throws MalformedURLException {
+		//TODO Checkar se o URL é da página do album
+		super(album_page_url);
 	}
 
 	public SputnikArtistPage getArtistPage() {
@@ -17,7 +32,17 @@ public class SputnikAlbumPage extends Page {
 		}
 	    
 		String path = element.attr("href");
-		return new SputnikArtistPage(getPage_url().getProtocol() + "://" + getPage_url().getHost() + "/" + path);
+		
+		SputnikArtistPage artist_page = null;
+		
+		try {
+			new SputnikArtistPage(getPage_url().getProtocol() + "://" + getPage_url().getHost() + "/" + path);
+		} catch (MalformedURLException e) {
+			System.out.println(e.getMessage());
+			System.out.println("There was some problem in the formation of the URL.");
+		}
+		
+		return artist_page;
 	}
 	
 	public String getAlbumName() {
