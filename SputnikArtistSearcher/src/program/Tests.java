@@ -1,16 +1,12 @@
 package program;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 import data.ArtistToTry;
-import data.ArtistsToTry;
 import data.StringHashSetFromFile;
 import page.SputnikAlbumPage;
 import page.SputnikArtistPage;
-import page.SputnikPage;
 
 public class Tests {
 
@@ -44,7 +40,6 @@ public class Tests {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e4) {
-			// TODO Auto-generated catch block
 			e4.printStackTrace();
 		}
 		
@@ -77,7 +72,6 @@ public class Tests {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e3) {
-			// TODO Auto-generated catch block
 			e3.printStackTrace();
 		}
 		
@@ -98,7 +92,6 @@ public class Tests {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		
@@ -115,7 +108,6 @@ public class Tests {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
@@ -135,7 +127,6 @@ public class Tests {
 				System.out.println("Test 5.3 passed");
 			};
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
