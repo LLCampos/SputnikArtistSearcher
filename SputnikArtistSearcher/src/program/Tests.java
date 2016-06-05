@@ -80,10 +80,14 @@ public class Tests {
 			ArtistToTry artist = new ArtistToTry("The paper chase", "now you are one of us", "rock", new URL("http://www.sputnikmusic.com/bands/The-Paper-Chase/11287/"));
 			
 			if (artist.getYoutube_url().toString().equals("https://www.youtube.com/results?search_query=the+paper+chase+now+you+are+one+of+us")) {
-				System.out.println("Test 3 passed.");
+				System.out.println("Test 3.1 passed.");
 			} else {
 				System.out.println("https://www.youtube.com/results?search_query=the+paper+chase+now+you+are+one+of+us");
 				System.out.println(artist.getYoutube_url().toString());
+			}
+			
+			if (artist.getAlbum_name().equals("now you are one of us")) {
+				System.out.println("Test 3.2 passed.");
 			}
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
