@@ -58,11 +58,11 @@ public class Tests {
 		}
 		
 		SputnikArtistPage album_artist_page = album_page.getArtistPage();
-		if (album_artist_page.getPage_url().toString().equals("http://www.sputnikmusic.com//bands/BUS/62292/")) {
+		if (album_artist_page.getPage_url().toString().equals("http://www.sputnikmusic.com/bands/BUS/62292/")) {
 			System.out.println("Test 2.1 passed.");
 		} else {
 			System.out.println("Test 2.1 failed.");
-			System.out.println("http://www.sputnikmusic.com//bands/BUS/62292/");
+			System.out.println("http://www.sputnikmusic.com/bands/BUS/62292/");
 			System.out.println(album_artist_page.getPage_url().toString());
 		};
 		
