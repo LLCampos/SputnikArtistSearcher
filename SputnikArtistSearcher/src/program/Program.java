@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -124,7 +126,21 @@ public class Program {
 			public void actionPerformed(ActionEvent e) {
 				String str = JOptionPane.showInputDialog(frame, "Please insert a Sputnik user ratings page URL.");
 				try {
+					JDialog wait_dialog = new JDialog(frame);
+					
+					JPanel panel = new JPanel(new BorderLayout());
+					panel.add(new JLabel("Please wait..."), BorderLayout.CENTER);
+					
+					wait_dialog.getContentPane().add(panel);
+					wait_dialog.pack();
+					wait_dialog.setLocationRelativeTo(frame);
+					
+					wait_dialog.setVisible(true);
+					
 					session.addArtistsFromSputnikURL(str);
+					
+					wait_dialog.dispose();
+					
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (MalformedURLException|IllegalArgumentException e1) {
