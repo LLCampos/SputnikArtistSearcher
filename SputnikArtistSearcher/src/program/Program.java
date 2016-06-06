@@ -126,20 +126,8 @@ public class Program {
 			public void actionPerformed(ActionEvent e) {
 				String str = JOptionPane.showInputDialog(frame, "Please insert a Sputnik user ratings page URL.");
 				try {
-					JDialog wait_dialog = new JDialog(frame);
-					
-					JPanel panel = new JPanel(new BorderLayout());
-					panel.add(new JLabel("Please wait..."), BorderLayout.CENTER);
-					
-					wait_dialog.getContentPane().add(panel);
-					wait_dialog.pack();
-					wait_dialog.setLocationRelativeTo(frame);
-					
-					wait_dialog.setVisible(true);
-					
 					session.addArtistsFromSputnikURL(str);
-					
-					wait_dialog.dispose();
+					createDoneDialog();
 					
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
@@ -174,6 +162,20 @@ public class Program {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private void createDoneDialog() {
+		
+		JDialog done_dialog = new JDialog(frame);
+		
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.add(new JLabel("Done!"), BorderLayout.CENTER);
+		
+		done_dialog.getContentPane().add(panel);
+		done_dialog.pack();
+		done_dialog.setLocationRelativeTo(frame);
+		
+		done_dialog.setVisible(true);		
 	}
 
 }
