@@ -46,6 +46,10 @@ public class SputnikArtistPage extends SputnikPage {
 	 */
 	public String getArtistTag() {
 		Element element = getPage_body().select(".tags > .tag > a").first();
-		return element.html().toLowerCase();	
+		if (element == null) {
+			return "no tag";
+		} else {
+			return element.html().toLowerCase();	
+		}
 	}
 }
