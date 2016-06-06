@@ -123,7 +123,7 @@ public class ProgramSession {
 	
 	/**
 	 * Actions to take if the user decides to add the artist currently being presented to the list
-	 * of artists of the CamposMusic software, also devoloped by Luis Campos.
+	 * of artists of the CamposMusic software, also developed by Luis Campos.
 	 */
 	public void addToCamposMusicList() {
 		try {
