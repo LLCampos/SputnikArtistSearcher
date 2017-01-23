@@ -4,7 +4,7 @@ Currently, the way I use to get to know new musical artists is going to music so
 
 ![Screenshot of the app] (http://s33.postimg.org/xzt6ymp9r/musicsearcher.png)
 
-So I developed this application to automate most of the boring parts of the process and make the discovery of new music more fun to me. The website I use in this app to discover new music is ![Sputnikmusic] (http://sputnikmusic.com/).
+So I developed this application to automate most of the boring parts of the process and make the discovery of new music more fun to me. The website I use in this app to discover new music is [SputnikMusic](http://sputnikmusic.com/).
 
 This really is not supposed to be used by people other than me, because it is adapted to my ways and quirks. (It even has a connection with other app I developed). But feel free to adapt or use whatever you want.
 
