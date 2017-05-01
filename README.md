@@ -2,7 +2,7 @@
 
 Currently, the way I use to get to know new musical artists is going to music social networks, find users that seem to have a similar musical taste to mine and checking the artists to which they gave higher ratings. The process sometimes is repetitive and frustrating, like when I have to look for artists I don't know in the middle of a list artists that I already know. Another problem is having to constantly check if the artist/music group plays music of a genre that I don't like to listen to.  
 
-![Screenshot of the app] (http://s33.postimg.org/xzt6ymp9r/musicsearcher.png)
+<img src="http://s33.postimg.org/xzt6ymp9r/musicsearcher.png">
 
 So I developed this application to automate most of the boring parts of the process and make the discovery of new music more fun to me. The website I use in this app to discover new music is [SputnikMusic](http://sputnikmusic.com/).
 
