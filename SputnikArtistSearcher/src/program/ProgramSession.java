@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URL;
 
 import data.ArtistToTry;
 import data.ArtistsToTry;
@@ -56,7 +57,16 @@ public class ProgramSession {
 	 * @return the artist to be presented to the user.
 	 */
 	public ArtistToTry getCurrentArtist() {
-		return artists_to_try.get(0);
+		try {
+			return artists_to_try.get(0);
+		} catch (IndexOutOfBoundsException e) {
+			try {
+				return new ArtistToTry("dummy", "dummy", "dummy", new URL("http://www.sputnikmusic.com/bands/The-Paper-Chase/11287/"));
+			} catch (MalformedURLException e1) {
+				e1.printStackTrace();
+				return null;
+			}
+		}
 	}
 	
 	
